@@ -72,16 +72,3 @@ namespace :db do
   end
 end
 
-# The standard test methods wipe the database, which breaks our domain data structure
-# so delete all the standard test methods
-["functionals", "units", "integration", "all"].each do |tt|
-  Rake.application.send(:eval, "@tasks.delete('test:#{tt}')")
-end
-
-namespace :test do
-  task :all => 'multitest'
-  task :units => 'multitest:units'
-  task :functionals => 'multitest:functionals'
-  task :integration => 'multitest:integration'
-end
-
