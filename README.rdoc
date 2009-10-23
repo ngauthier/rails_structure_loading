@@ -19,18 +19,16 @@ in your Rakefile:
 
 == What it does
 
-Rails Structure Loading creates the following tasks:
+=== New Tasks
 
 * db:structure:load - loads db/structure.sql into the DB
 * db:structure:dump - creates db/structure.sql from the DB
-* db:domain:load - loads db/domain.sql into the DB
-(this is your app's domain data, not seed data)
+* db:domain:load - loads db/domain.sql into the DB (this is your app's domain data, not seed data)
 * db:domain:dump - dumps the data in the database into db/domain.sql
 
-Rails Structure Loading modifies the following tasks:
+=== Modified Tasks
 
-* db:reset will load the structure and domain data if the file exists,
-otherwise it will use the schema as usual
+* db:reset will load the structure and domain data if the file exists, otherwise it will use the schema as usual
 * db:migrate will dump the structure and domain data after running
 
 == Copyright
