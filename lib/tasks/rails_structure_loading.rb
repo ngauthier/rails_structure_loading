@@ -48,9 +48,10 @@ namespace :db do
       opts << "--data-only"
       opts << "--column-inserts"
       opts << "--exclude-table=schema_migrations"
+      opts << "--no-owner"
       opts << "-U #{conf["username"]}" if conf["username"]
       opts = opts.join(" ")
-      `pg_dump #{opts} #{conf["database"]} > #{domain}`
+      `pg_dump #{opts} #{conf["database"]} | grep -v '^--' | cat -s > #{domain}`
     end
   end
 end
