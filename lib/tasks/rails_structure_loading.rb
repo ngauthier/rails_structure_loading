@@ -67,9 +67,14 @@ namespace :db do
   desc "Dump the structure after a migration"
   task :migrate do
     Rake::Task["db:structure:dump"].invoke if ActiveRecord::Base.schema_format == :sql
-    if RAILS_ENV == "test"
+  end
+
+  namespace :migrate do
+    desc "Dump the domain when a migrate-reset is run"
+    task :reset do
       Rake::Task["db:domain:dump"].invoke if ActiveRecord::Base.schema_format == :sql
     end
   end
+  
 end
 
