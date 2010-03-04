@@ -17,6 +17,10 @@ in your Rakefile:
 
   require 'rails_structure_loading'
 
+in your environment.rb
+
+  ActiveRecord::Base.schema_format = :sql
+
 == What it does
 
 === New Tasks
